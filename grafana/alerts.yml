@@ -1,0 +1,46 @@
+# Prometheus alerting rules for HyPaper 0G Engine.
+# Mount in Prometheus: --web.config.file or include via rule_files.
+
+groups:
+  - name: hypaper_alerts
+    interval: 15s
+    rules:
+      # Price feed silent > 30s
+      - alert: PriceFeedSilent
+        expr: time() - push_time(price_ticks_total{app="hypaper-engine"}) > 30
+        for: 30s
+        labels:
+          severity: critical
+        annotations:
+          summary: "Price feed silent for over 30 seconds"
+          description: "No price ticks received from Binance in the last 30s. Check BinanceAdapter WS connection."
+
+      # RPC error rate > 5%
+      - alert: HighRpcErrorRate
+        expr: rate(rpc_errors_total{app="hypaper-engine"}[5m]) / (rate(rpc_errors_total{app="hypaper-engine"}[5m]) + 0.001) > 0.05
+        for: 1m
+        labels:
+          severity: warning
+        annotations:
+          summary: "RPC error rate exceeds 5%"
+          description: "RPC errors are above 5% of total RPC calls in the last 5 minutes."
+
+      # Fill latency p99 > 100ms
+      - alert: HighFillLatency
+        expr: histogram_quantile(0.99, rate(order_fill_latency_ms_bucket{app="hypaper-engine"}[5m])) > 100
+        for: 2m
+        labels:
+          severity: warning
+        annotations:
+          summary: "Order fill latency p99 exceeds 100ms"
+          description: "p99 fill latency is {{ $value }}ms — investigate matching engine performance."
+
+      # Too many liquidations in 5 minutes
+      - alert: LiquidationSpike
+        expr: increase(liquidations_total{app="hypaper-engine"}[5m]) > 50
+        for: 1m
+        labels:
+          severity: critical
+        annotations:
+          summary: "Liquidation spike detected"
+          description: "{{ $value }} liquidations in the last 5 minutes — possible flash crash or risk misconfiguration."

@@ -1,0 +1,276 @@
+{
+    "annotations": {
+        "list": []
+    },
+    "editable": true,
+    "fiscalYearStartMonth": 0,
+    "graphTooltip": 1,
+    "id": null,
+    "links": [],
+    "liveNow": true,
+    "panels": [
+        {
+            "title": "Order Fill Latency (p50/p95/p99)",
+            "type": "timeseries",
+            "gridPos": {
+                "h": 8,
+                "w": 12,
+                "x": 0,
+                "y": 0
+            },
+            "datasource": {
+                "type": "prometheus"
+            },
+            "targets": [
+                {
+                    "expr": "histogram_quantile(0.50, rate(order_fill_latency_ms_bucket{app=\"hypaper-engine\"}[1m]))",
+                    "legendFormat": "p50"
+                },
+                {
+                    "expr": "histogram_quantile(0.95, rate(order_fill_latency_ms_bucket{app=\"hypaper-engine\"}[1m]))",
+                    "legendFormat": "p95"
+                },
+                {
+                    "expr": "histogram_quantile(0.99, rate(order_fill_latency_ms_bucket{app=\"hypaper-engine\"}[1m]))",
+                    "legendFormat": "p99"
+                }
+            ],
+            "fieldConfig": {
+                "defaults": {
+                    "unit": "ms",
+                    "color": {
+                        "mode": "palette-classic"
+                    }
+                }
+            }
+        },
+        {
+            "title": "Active WebSocket Connections",
+            "type": "stat",
+            "gridPos": {
+                "h": 4,
+                "w": 6,
+                "x": 12,
+                "y": 0
+            },
+            "datasource": {
+                "type": "prometheus"
+            },
+            "targets": [
+                {
+                    "expr": "active_ws_connections{app=\"hypaper-engine\"}",
+                    "legendFormat": "WS Connections"
+                }
+            ],
+            "fieldConfig": {
+                "defaults": {
+                    "thresholds": {
+                        "steps": [
+                            {
+                                "color": "green",
+                                "value": null
+                            },
+                            {
+                                "color": "yellow",
+                                "value": 500
+                            },
+                            {
+                                "color": "red",
+                                "value": 900
+                            }
+                        ]
+                    }
+                }
+            }
+        },
+        {
+            "title": "Active Demo Bots",
+            "type": "stat",
+            "gridPos": {
+                "h": 4,
+                "w": 6,
+                "x": 18,
+                "y": 0
+            },
+            "datasource": {
+                "type": "prometheus"
+            },
+            "targets": [
+                {
+                    "expr": "active_demo_bots{app=\"hypaper-engine\"}",
+                    "legendFormat": "Bots"
+                }
+            ]
+        },
+        {
+            "title": "Price Ticks/sec (by symbol)",
+            "type": "timeseries",
+            "gridPos": {
+                "h": 8,
+                "w": 12,
+                "x": 12,
+                "y": 4
+            },
+            "datasource": {
+                "type": "prometheus"
+            },
+            "targets": [
+                {
+                    "expr": "rate(price_ticks_total{app=\"hypaper-engine\"}[1m])",
+                    "legendFormat": "{{ symbol }}"
+                }
+            ],
+            "fieldConfig": {
+                "defaults": {
+                    "unit": "ops",
+                    "color": {
+                        "mode": "palette-classic"
+                    }
+                }
+            }
+        },
+        {
+            "title": "Order Fills/sec",
+            "type": "timeseries",
+            "gridPos": {
+                "h": 8,
+                "w": 12,
+                "x": 0,
+                "y": 8
+            },
+            "datasource": {
+                "type": "prometheus"
+            },
+            "targets": [
+                {
+                    "expr": "rate(order_fills_total{app=\"hypaper-engine\"}[1m])",
+                    "legendFormat": "{{ symbol }} {{ side }}"
+                }
+            ],
+            "fieldConfig": {
+                "defaults": {
+                    "unit": "ops"
+                }
+            }
+        },
+        {
+            "title": "Liquidations Total",
+            "type": "stat",
+            "gridPos": {
+                "h": 4,
+                "w": 6,
+                "x": 12,
+                "y": 12
+            },
+            "datasource": {
+                "type": "prometheus"
+            },
+            "targets": [
+                {
+                    "expr": "liquidations_total{app=\"hypaper-engine\"}",
+                    "legendFormat": "Liquidations"
+                }
+            ],
+            "fieldConfig": {
+                "defaults": {
+                    "color": {
+                        "fixedColor": "red",
+                        "mode": "fixed"
+                    }
+                }
+            }
+        },
+        {
+            "title": "Redis Ops/sec",
+            "type": "timeseries",
+            "gridPos": {
+                "h": 8,
+                "w": 12,
+                "x": 0,
+                "y": 16
+            },
+            "datasource": {
+                "type": "prometheus"
+            },
+            "targets": [
+                {
+                    "expr": "rate(redis_ops_total{app=\"hypaper-engine\"}[1m])",
+                    "legendFormat": "{{ operation }}"
+                }
+            ],
+            "fieldConfig": {
+                "defaults": {
+                    "unit": "ops"
+                }
+            }
+        },
+        {
+            "title": "RPC Errors/sec",
+            "type": "timeseries",
+            "gridPos": {
+                "h": 8,
+                "w": 12,
+                "x": 12,
+                "y": 16
+            },
+            "datasource": {
+                "type": "prometheus"
+            },
+            "targets": [
+                {
+                    "expr": "rate(rpc_errors_total{app=\"hypaper-engine\"}[1m])",
+                    "legendFormat": "{{ method }}"
+                }
+            ],
+            "fieldConfig": {
+                "defaults": {
+                    "unit": "ops",
+                    "color": {
+                        "fixedColor": "red",
+                        "mode": "fixed"
+                    }
+                }
+            }
+        },
+        {
+            "title": "WebSocket Messages/sec",
+            "type": "timeseries",
+            "gridPos": {
+                "h": 8,
+                "w": 24,
+                "x": 0,
+                "y": 24
+            },
+            "datasource": {
+                "type": "prometheus"
+            },
+            "targets": [
+                {
+                    "expr": "rate(ws_messages_total{app=\"hypaper-engine\"}[1m])",
+                    "legendFormat": "WS msg/s"
+                }
+            ],
+            "fieldConfig": {
+                "defaults": {
+                    "unit": "ops"
+                }
+            }
+        }
+    ],
+    "refresh": "5s",
+    "schemaVersion": 39,
+    "tags": [
+        "hypaper",
+        "trading",
+        "0g"
+    ],
+    "templating": {
+        "list": []
+    },
+    "time": {
+        "from": "now-15m",
+        "to": "now"
+    },
+    "title": "HyPaper 0G — Engine Dashboard",
+    "uid": "hypaper-engine-v1"
+}

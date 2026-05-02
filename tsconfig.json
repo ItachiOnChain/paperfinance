@@ -1,0 +1,33 @@
+{
+    "compilerOptions": {
+        "target": "ES2022",
+        "module": "ESNext",
+        "moduleResolution": "bundler",
+        "lib": [
+            "ES2022"
+        ],
+        "strict": true,
+        "esModuleInterop": true,
+        "skipLibCheck": true,
+        "forceConsistentCasingInFileNames": true,
+        "resolveJsonModule": true,
+        "declaration": true,
+        "declarationMap": true,
+        "sourceMap": true,
+        "composite": true,
+        "paths": {
+            "@engine/*": [
+                "./packages/engine/src/*"
+            ]
+        },
+        "types": [
+            "bun-types"
+        ]
+    },
+    "include": [],
+    "references": [
+        {
+            "path": "./packages/engine"
+        }
+    ]
+}

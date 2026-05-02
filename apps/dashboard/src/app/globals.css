@@ -1,0 +1,128 @@
+@import "tailwindcss";
+
+/* ── Dash flow animation for engine pipeline ───────── */
+@keyframes dash-flow {
+  to {
+    stroke-dashoffset: -20;
+  }
+}
+
+:root {
+  --bg-primary: #060911;
+  --bg-card: #0a0e17;
+  --bg-input: #141822;
+  --border: #1a1f2e;
+  --text-primary: #ffffff;
+  --text-secondary: #8a919e;
+  --accent-green: #00ff88;
+  --accent-red: #ff3366;
+  --accent-amber: #ffaa00;
+}
+
+/* ── Scrollbar ─────────────────────────────────────── */
+::-webkit-scrollbar {
+  width: 4px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--bg-primary);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--border);
+  border-radius: 2px;
+}
+
+.scrollbar-hide::-webkit-scrollbar {
+  display: none;
+}
+
+.scrollbar-hide {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+/* ── Flash animations for trade feed ───────────────── */
+@keyframes flash-green {
+  0% {
+    background-color: rgba(0, 255, 136, 0.15);
+  }
+
+  100% {
+    background-color: transparent;
+  }
+}
+
+@keyframes flash-red {
+  0% {
+    background-color: rgba(255, 51, 102, 0.15);
+  }
+
+  100% {
+    background-color: transparent;
+  }
+}
+
+.flash-green {
+  animation: flash-green 600ms ease-out;
+}
+
+.flash-red {
+  animation: flash-red 600ms ease-out;
+}
+
+/* ── Pulse animation ───────────────────────────────── */
+@keyframes gentle-pulse {
+
+  0%,
+  100% {
+    opacity: 1;
+  }
+
+  50% {
+    opacity: 0.5;
+  }
+}
+
+.animate-pulse {
+  animation: gentle-pulse 2s ease-in-out infinite;
+}
+
+/* ── Range input styling ───────────────────────────── */
+input[type="range"] {
+  -webkit-appearance: none;
+  appearance: none;
+  height: 4px;
+  background: var(--border);
+  border-radius: 2px;
+  outline: none;
+}
+
+input[type="range"]::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+  background: var(--accent-green);
+  cursor: pointer;
+  border: 2px solid var(--bg-primary);
+  box-shadow: 0 0 8px rgba(0, 255, 136, 0.3);
+}
+
+/* ── Number input: hide spinners ───────────────────── */
+input[type="number"]::-webkit-outer-spin-button,
+input[type="number"]::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+input[type="number"] {
+  -moz-appearance: textfield;
+}
+
+/* ── Global body ───────────────────────────────────── */
+body {
+  background-color: var(--bg-primary);
+  color: var(--text-primary);
+}
