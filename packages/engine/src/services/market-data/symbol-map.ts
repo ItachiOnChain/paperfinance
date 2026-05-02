@@ -21,11 +21,28 @@ export interface SymbolEntry {
  * Static symbol map — add new pairs here.
  */
 export const SYMBOL_MAP: SymbolEntry[] = [
+    // Core & Liquidity
     { internal: 'BTC-PERP', binance: 'btcusdt', pricePrecision: 2, sizePrecision: 5 },
     { internal: 'ETH-PERP', binance: 'ethusdt', pricePrecision: 2, sizePrecision: 4 },
     { internal: 'SOL-PERP', binance: 'solusdt', pricePrecision: 3, sizePrecision: 2 },
     { internal: 'ARB-PERP', binance: 'arbusdt', pricePrecision: 4, sizePrecision: 1 },
+    { internal: 'OP-PERP', binance: 'opusdt', pricePrecision: 4, sizePrecision: 1 },
     { internal: 'AVAX-PERP', binance: 'avaxusdt', pricePrecision: 3, sizePrecision: 2 },
+    { internal: 'DOGE-PERP', binance: 'dogeusdt', pricePrecision: 5, sizePrecision: 0 },
+    { internal: 'XRP-PERP', binance: 'xrpusdt', pricePrecision: 4, sizePrecision: 1 },
+    { internal: 'LTC-PERP', binance: 'ltcusdt', pricePrecision: 2, sizePrecision: 3 },
+    { internal: 'LINK-PERP', binance: 'linkusdt', pricePrecision: 3, sizePrecision: 2 },
+
+    // AI & Compute (0G aligned)
+    { internal: 'FETCH-PERP', binance: 'fetusdt', pricePrecision: 4, sizePrecision: 0 },
+    { internal: 'RNDR-PERP', binance: 'rndrusdt', pricePrecision: 4, sizePrecision: 1 },
+    { internal: 'TAO-PERP', binance: 'taousdt', pricePrecision: 2, sizePrecision: 3 },
+    { internal: 'AKT-PERP', binance: 'aktusdt', pricePrecision: 4, sizePrecision: 1 },
+
+    // Modular & DA
+    { internal: 'TIA-PERP', binance: 'tiausdt', pricePrecision: 4, sizePrecision: 1 },
+    { internal: 'EIGEN-PERP', binance: 'eigenusdt', pricePrecision: 4, sizePrecision: 1 },
+    { internal: 'NEAR-PERP', binance: 'nearusdt', pricePrecision: 3, sizePrecision: 1 },
 ];
 
 /** Look up internal name from Binance stream symbol */

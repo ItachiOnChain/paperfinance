@@ -12,20 +12,21 @@ import { BinanceAdapter } from './services/market-data/binance-adapter';
 import { StalePriceGuard } from './services/market-data/stale-price-guard';
 import { startDepositIndexer } from './services/chain/deposit-indexer';
 import { DemoController } from './lib/demo/demo-controller';
+import { getAllBinanceSymbols } from './services/market-data/symbol-map';
 
 async function main() {
-    console.log('═══════════════════════════════════════════════');
+    console.log('\n═══════════════════════════════════════════════');
     console.log('  HyPaper 0G — Paper Trading Engine');
     console.log('═══════════════════════════════════════════════\n');
 
-    // 1. Connect to Redis
+    // 1. Storage
     console.log('[Boot] Connecting to Redis...');
     await connectRedis();
     console.log('[Boot] Redis connected ✓\n');
 
     // 2. Connect to Binance (always real data)
     console.log('[Boot] Connecting to Binance (live market data)...');
-    const binance = new BinanceAdapter(['btcusdt', 'ethusdt']);
+    const binance = new BinanceAdapter(getAllBinanceSymbols());
     const guard = new StalePriceGuard();
     const stopStaleMonitor = guard.startMonitor(1000);
 
