@@ -68,7 +68,7 @@ function Page3() {
 
             <div className="space-y-2 px-8 py-8 font-mono text-[15px] leading-[1.55] text-[#536662] lg:px-12 lg:py-12 lg:text-[49px]">
               <p>
-                <span className="text-[#1d7d65]">$</span> git clone https://github.com/GigabrainGG/PaperFinance.git
+                <span className="text-[#1d7d65]">$</span> git clone https://github.com/ItachiOnChain/paperfinance.git
               </p>
               <p>
                 <span className="text-[#1d7d65]">$</span> cd paperfinance-backend && cp .env.example .env

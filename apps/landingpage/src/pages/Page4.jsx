@@ -30,7 +30,7 @@ function Page4() {
         <div className="mt-10 w-full max-w-4xl rounded-xl border border-[#bfd9d2] bg-[#f4faf8] px-4 py-4 text-left sm:px-6">
           <p className="font-mono text-sm text-[#2a3331] sm:text-base">
             <span className="mr-2 text-[#258062]">$</span>
-            git clone https://github.com/GigabrainGG/PaperFinance.git && docker compose up -d
+            git clone https://github.com/ItachiOnChain/paperfinance.git && docker compose up -d
           </p>
         </div>
 
