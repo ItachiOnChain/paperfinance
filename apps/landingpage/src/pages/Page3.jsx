@@ -43,10 +43,10 @@ function Page3() {
               <p>
                 <span className="text-[#b57beb]">base_url</span>
                 <span className="text-[#536662]"> = </span>
-                <span className="text-[#df943f]">"https://api.hyperliquid.xyz"</span>
+                <span className="text-[#df943f]">"https://api.binance.com"</span>
               </p>
               <p className="h-4 lg:h-10" />
-              <p className="text-[#7f9790]"># After (HyPaper)</p>
+              <p className="text-[#7f9790]"># After (PaperFinance)</p>
               <p>
                 <span className="text-[#b57beb]">base_url</span>
                 <span className="text-[#536662]"> = </span>
@@ -68,10 +68,10 @@ function Page3() {
 
             <div className="space-y-2 px-8 py-8 font-mono text-[15px] leading-[1.55] text-[#536662] lg:px-12 lg:py-12 lg:text-[49px]">
               <p>
-                <span className="text-[#1d7d65]">$</span> git clone https://github.com/GigabrainGG/HyPaper.git
+                <span className="text-[#1d7d65]">$</span> git clone https://github.com/GigabrainGG/PaperFinance.git
               </p>
               <p>
-                <span className="text-[#1d7d65]">$</span> cd hypaper-backend && cp .env.example .env
+                <span className="text-[#1d7d65]">$</span> cd paperfinance-backend && cp .env.example .env
               </p>
               <p>
                 <span className="text-[#1d7d65]">$</span> docker compose up -d

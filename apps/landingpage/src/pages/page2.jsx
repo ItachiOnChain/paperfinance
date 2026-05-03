@@ -12,12 +12,12 @@ function Skills() {
           Plug agents into
           <br />
           <span className="italic text-[#6b7f7a]">
-            HyPaper fast.
+            PaperFinance fast.
           </span>
         </h2>
 
         <p className="mt-6 text-base text-[#5c6f69] sm:text-lg lg:text-xl">
-          Open the HyPaper skills folder and hand your agent a machine-readable
+          Open the PaperFinance skills folder and hand your agent a machine-readable
           starting point for discovery, execution, and account workflows.
         </p>
       </div>
@@ -39,7 +39,7 @@ function Skills() {
         {/* Content */}
         <div className="px-5 py-6 font-mono text-sm text-[#2f3d3a] sm:text-base lg:px-8 lg:py-8">
           
-          <p className="text-[#1f2e2b]">skills/hypaper-api</p>
+          <p className="text-[#1f2e2b]">skills/paperfinance-api</p>
 
           <div className="mt-4 space-y-2 text-[#5f736e]">
             <p>- machine-readable API context</p>

@@ -4,8 +4,8 @@ function Capabilities() {
       id: "01",
       icon: "⚡",
       title: "Live Price Matching",
-      desc: "Streams HyperLiquid's live feed and fills paper orders off real mid prices with L2 VWAP slippage.",
-      tag: "wss://api.hyperliquid.xyz/ws",
+      desc: "Streams Binance's live feed and fills paper orders off real mid prices with L2 VWAP slippage.",
+      tag: "wss://api.binance.com",
     },
     {
       id: "02",
@@ -18,7 +18,7 @@ function Capabilities() {
       id: "03",
       icon: "🔄",
       title: "1:1 API Compatibility",
-      desc: "Drop-in replacement for HyperLiquid APIs. No code changes required for integration.",
+      desc: "Drop-in replacement for Binance APIs. No code changes required for integration.",
       tag: "/info /exchange",
     },
     {
@@ -48,7 +48,7 @@ function Capabilities() {
         </h2>
 
         <p className="mt-6 max-w-2xl text-base text-[#5c6f69] sm:text-lg lg:text-xl">
-          Built to mirror the HyperLiquid API exactly. Switch between paper and live with a single URL change.
+          Built to mirror the Binance API exactly. Switch between paper and live with a single URL change.
         </p>
       </div>
 
