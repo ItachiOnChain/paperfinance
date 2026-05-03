@@ -1,10 +1,10 @@
 function Page4() {
   return (
     <section className="border-y border-[#d3e6df] bg-[#eff7f4]">
-      
+
       {/* MAIN */}
       <div className="mx-auto max-w-6xl px-6 py-20 text-center lg:py-28">
-        
+
         {/* Tag */}
         <p className="flex items-center justify-center gap-3 text-sm font-semibold tracking-widest text-[#237d65] sm:text-base">
           <span className="h-[2px] w-8 bg-[#78e4cd]" />
@@ -36,7 +36,7 @@ function Page4() {
 
         {/* Buttons */}
         <div className="mt-10 flex flex-wrap items-center justify-center gap-4">
-          
+
           {/* Primary */}
           <button className="inline-flex items-center gap-2 rounded-full bg-[#78e4cd] px-6 py-3 text-sm font-semibold text-[#102322] transition hover:opacity-90 sm:text-base">
             <svg className="h-4 w-4 sm:h-5 sm:w-5" viewBox="0 0 24 24">
@@ -58,11 +58,11 @@ function Page4() {
       {/* FOOTER */}
       <footer className="border-t border-[#d3e6df] bg-[#fdfefe]">
         <div className="mx-auto flex max-w-6xl flex-col gap-4 px-6 py-6 sm:flex-row sm:items-center sm:justify-between">
-          
+
           {/* Left */}
           <div className="flex flex-wrap items-center gap-2 text-sm text-[#6f8480]">
             <span className="font-['Fraunces'] text-xl font-semibold text-[#49615b]">
-              Hy<span className="italic text-[#2d8c74]">Paper</span>
+              Paper<span className="italic text-[#2d8c74]">Finance</span>
             </span>
             <span>|</span>
             <span>Open source</span>
