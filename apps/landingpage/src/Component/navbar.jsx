@@ -1,12 +1,12 @@
 function Navbar() {
   return (
     <header className="flex h-[80px] items-center justify-between border-b border-[#e6f0ec] bg-[#f9fbfa] px-6 lg:px-8 xl:px-8">
-      
+
       {/* Logo */}
       <div className="flex items-center rounded-lg border border-[#cfe5df] overflow-hidden">
         <div className="bg-[#e8f3f0] px-3 py-2 font-['Fraunces'] text-[20px] font-semibold leading-none lg:text-[17px]">
-          <span className="text-[#0f2332]">Hy</span>
-          <span className="text-[#2d8c74] italic">Paper</span>
+          <span className="text-[#0f2332]">Paper</span>
+          <span className="text-[#2d8c74] italic">Finance</span>
         </div>
         <div className="bg-[#dff5ee] px-4 py-2 text-[14px] font-semibold text-[#2d8c74] lg:text-[15px]">
           Open Source
@@ -28,7 +28,7 @@ function Navbar() {
 
       {/* Actions */}
       <div className="flex items-center gap-3">
-        
+
         {/* GitHub Button */}
         <button className="flex items-center gap-2 rounded-full border border-[#d3e7e1] bg-white px-4 py-2 text-[13px] font-medium text-[#1f2e2b] hover:bg-gray-50 transition">
           <svg className="h-4 w-4" viewBox="0 0 24 24">
