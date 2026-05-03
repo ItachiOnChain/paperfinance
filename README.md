@@ -1,6 +1,6 @@
-# HyPaper 0G — Developer Quick Start
+# PaperFinance 0G — Developer Quick Start
 
-Welcome to the HyPaper 0G paper trading engine and dashboard. This guide will help any new developer get the full stack running locally on their machine.
+Welcome to the PaperFinance 0G paper trading engine and dashboard. This guide will help any new developer get the full stack running locally on their machine.
 
 ## Prerequisites
 
