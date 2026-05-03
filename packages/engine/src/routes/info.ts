@@ -81,10 +81,23 @@ export function registerInfoRoutes(app: FastifyInstance): void {
                     if (!user) return reply.status(400).send({ error: 'Missing user' });
                     const address = normalizeAddress(user);
 
-                    const fillIds = await redis.lrange(KEYS.fills(address), 0, 99);
-                    return fillIds.map((f: string) => {
-                        try { return JSON.parse(f); } catch { return f; }
-                    });
+                    try {
+                        const fillEntries = await redis.xrevrange(KEYS.fills(address), '+', '-', 'COUNT', 100);
+                        return fillEntries.map((entry: any) => {
+                            const fields = entry[1];
+                            const idx = fields.indexOf('fillJson');
+                            if (idx !== -1 && fields[idx + 1]) {
+                                try { return JSON.parse(fields[idx + 1]); } catch { return fields[idx + 1]; }
+                            }
+                            const obj: any = {};
+                            for (let i = 0; i < fields.length; i += 2) {
+                                obj[fields[i]] = fields[i + 1];
+                            }
+                            return obj;
+                        });
+                    } catch (e) {
+                        return [];
+                    }
                 }
 
                 case 'meta': {

@@ -16,7 +16,7 @@ import { getAllBinanceSymbols } from './services/market-data/symbol-map';
 
 async function main() {
     console.log('\n═══════════════════════════════════════════════');
-    console.log('  HyPaper 0G — Paper Trading Engine');
+    console.log('  Paper Finance — Paper Trading Engine on 0G');
     console.log('═══════════════════════════════════════════════\n');
 
     // 1. Storage
